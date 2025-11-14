@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
+import ServiceDetail from "./pages/ServiceDetail";
 import IVFUnit from "./pages/IVFUnit";
 import Doctors from "./pages/Doctors";
 import DoctorProfile from "./pages/DoctorProfile";
@@ -37,6 +38,7 @@ const App = () => (
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/services" element={<Services />} />
+                <Route path="/services/:id" element={<ServiceDetail />} />
                 <Route path="/ivf-unit" element={<IVFUnit />} />
                 <Route path="/doctors" element={<Doctors />} />
                 <Route path="/doctors/:id" element={<DoctorProfile />} />
