@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import ServiceDetail from "./pages/ServiceDetail";
 import IVFUnit from "./pages/IVFUnit";
+import IVFDetail from "./pages/IVFDetail";
 import Doctors from "./pages/Doctors";
 import DoctorProfile from "./pages/DoctorProfile";
 import Facilities from "./pages/Facilities";
@@ -40,6 +41,7 @@ const App = () => (
                 <Route path="/services" element={<Services />} />
                 <Route path="/services/:id" element={<ServiceDetail />} />
                 <Route path="/ivf-unit" element={<IVFUnit />} />
+                <Route path="/ivf-unit/:id" element={<IVFDetail />} />
                 <Route path="/doctors" element={<Doctors />} />
                 <Route path="/doctors/:id" element={<DoctorProfile />} />
                 <Route path="/facilities" element={<Facilities />} />

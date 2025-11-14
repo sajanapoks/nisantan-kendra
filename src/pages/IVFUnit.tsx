@@ -1,48 +1,12 @@
+import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { FlaskConical, Building2, Microscope, ThermometerSnowflake, ShieldCheck } from 'lucide-react';
+import { ivfFacilities } from '@/data/ivfData';
 
 const IVFUnit = () => {
   const { language, t } = useLanguage();
-
-  const facilities = [
-    {
-      icon: Building2,
-      title: language === 'en' ? 'Reception & Consultation' : 'स्वागत र परामर्श',
-      description: language === 'en'
-        ? 'Comfortable waiting area and private consultation rooms for patient privacy'
-        : 'बिरामी गोपनीयताको लागि आरामदायक प्रतीक्षा क्षेत्र र निजी परामर्श कोठाहरू',
-    },
-    {
-      icon: FlaskConical,
-      title: language === 'en' ? 'Embryology Laboratory' : 'भ्रूणविज्ञान प्रयोगशाला',
-      description: language === 'en'
-        ? 'State-of-the-art lab with controlled environment for embryo culture and development'
-        : 'भ्रूण संस्कृति र विकासको लागि नियन्त्रित वातावरण सहित अत्याधुनिक प्रयोगशाला',
-    },
-    {
-      icon: Microscope,
-      title: language === 'en' ? 'ICSI Laboratory' : 'आईसीएसआई प्रयोगशाला',
-      description: language === 'en'
-        ? 'Specialized equipment for intracytoplasmic sperm injection procedures'
-        : 'इन्ट्रासाइटोप्लाज्मिक स्पर्म इन्जेक्शन प्रक्रियाहरूको लागि विशेष उपकरण',
-    },
-    {
-      icon: ThermometerSnowflake,
-      title: language === 'en' ? 'Cryopreservation Unit' : 'क्रायोप्रिजर्भेसन युनिट',
-      description: language === 'en'
-        ? 'Advanced freezing technology with backup systems for safe storage'
-        : 'सुरक्षित भण्डारणको लागि ब्याकअप प्रणालीहरू सहित उन्नत फ्रीजिङ प्रविधि',
-    },
-    {
-      icon: ShieldCheck,
-      title: language === 'en' ? 'Operation Theatre' : 'शल्यक्रिया कक्ष',
-      description: language === 'en'
-        ? 'Sterile environment equipped for egg retrieval and embryo transfer'
-        : 'अण्डा पुनर्प्राप्ति र भ्रूण स्थानान्तरणको लागि सुसज्जित बाँझ वातावरण',
-    },
-  ];
+  const navigate = useNavigate();
 
   const equipment = [
     { name: language === 'en' ? 'HEPA Filtered Air System' : 'HEPA फिल्टर्ड एयर सिस्टम', category: 'Environment' },
@@ -95,17 +59,28 @@ const IVFUnit = () => {
             {language === 'en' ? 'Our Facilities' : 'हाम्रा सुविधाहरू'}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {facilities.map((facility, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                    <facility.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="font-bold text-lg mb-2 text-foreground">{facility.title}</h3>
-                  <p className="text-sm text-muted-foreground">{facility.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+            {ivfFacilities.map((facility, index) => {
+              const Icon = facility.icon;
+              return (
+                <Card
+                  key={index}
+                  className="hover:shadow-lg transition-shadow cursor-pointer"
+                  onClick={() => navigate(`/ivf-unit/${facility.id}`)}
+                >
+                  <CardContent className="p-6">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                      <Icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="font-bold text-lg mb-2 text-foreground">
+                      {language === 'en' ? facility.title.en : facility.title.np}
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      {language === 'en' ? facility.description.en : facility.description.np}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </section>
 
