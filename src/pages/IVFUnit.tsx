@@ -3,6 +3,11 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ivfFacilities } from '@/data/ivfData';
+import icsiImage from '@/assets/icsi.jpg';
+import laminarFlowImage from '@/assets/laminar flow with egg sepation system with temperature control.jpg';
+import microscopeImage from '@/assets/microscope.jpg';
+import ovumPickupImage from '@/assets/ovum pickup.jpg';
+import tvUsgImage from '@/assets/tv usg.jpg';
 
 const IVFUnit = () => {
   const { language, t } = useLanguage();
@@ -81,6 +86,114 @@ const IVFUnit = () => {
                 </Card>
               );
             })}
+          </div>
+        </section>
+
+        {/* Facility Images Gallery */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold mb-6 text-foreground">
+            {language === 'en' ? 'Our Facility & Equipment' : 'हाम्रो सुविधा र उपकरण'}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Card className="overflow-hidden hover:shadow-xl transition-shadow">
+              <div className="aspect-video overflow-hidden">
+                <img
+                  src={icsiImage}
+                  alt="ICSI Procedure"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <CardContent className="p-4">
+                <h3 className="font-bold text-foreground">
+                  {language === 'en' ? 'ICSI Procedure' : 'आईसीएसआई प्रक्रिया'}
+                </h3>
+                <p className="text-sm text-muted-foreground mt-2">
+                  {language === 'en'
+                    ? 'Advanced micromanipulation for intracytoplasmic sperm injection'
+                    : 'इन्ट्रासाइटोप्लाज्मिक स्पर्म इन्जेक्शनको लागि उन्नत माइक्रोम्यानिपुलेशन'}
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="overflow-hidden hover:shadow-xl transition-shadow">
+              <div className="aspect-video overflow-hidden">
+                <img
+                  src={laminarFlowImage}
+                  alt="Laminar Flow System"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <CardContent className="p-4">
+                <h3 className="font-bold text-foreground">
+                  {language === 'en' ? 'Laminar Flow with Egg Separation' : 'अण्डा विभाजन सहित लामिनार फ्लो'}
+                </h3>
+                <p className="text-sm text-muted-foreground mt-2">
+                  {language === 'en'
+                    ? 'Temperature controlled environment for egg handling'
+                    : 'अण्डा ह्यान्डलिंगको लागि तापक्रम नियन्त्रित वातावरण'}
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="overflow-hidden hover:shadow-xl transition-shadow">
+              <div className="aspect-video overflow-hidden">
+                <img
+                  src={microscopeImage}
+                  alt="Laboratory Microscope"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <CardContent className="p-4">
+                <h3 className="font-bold text-foreground">
+                  {language === 'en' ? 'Advanced Microscopy' : 'उन्नत माइक्रोस्कोपी'}
+                </h3>
+                <p className="text-sm text-muted-foreground mt-2">
+                  {language === 'en'
+                    ? 'High-precision microscopes for embryo examination'
+                    : 'भ्रूण परीक्षणको लागि उच्च-परिशुद्धता माइक्रोस्कोपहरू'}
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="overflow-hidden hover:shadow-xl transition-shadow">
+              <div className="aspect-video overflow-hidden">
+                <img
+                  src={ovumPickupImage}
+                  alt="Ovum Pickup Procedure"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <CardContent className="p-4">
+                <h3 className="font-bold text-foreground">
+                  {language === 'en' ? 'Ovum Pickup Procedure' : 'अण्डा पुनर्प्राप्ति प्रक्रिया'}
+                </h3>
+                <p className="text-sm text-muted-foreground mt-2">
+                  {language === 'en'
+                    ? 'Ultrasound-guided egg retrieval procedure'
+                    : 'अल्ट्रासाउन्ड-निर्देशित अण्डा पुनर्प्राप्ति प्रक्रिया'}
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="overflow-hidden hover:shadow-xl transition-shadow">
+              <div className="aspect-video overflow-hidden">
+                <img
+                  src={tvUsgImage}
+                  alt="Transvaginal Ultrasound"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <CardContent className="p-4">
+                <h3 className="font-bold text-foreground">
+                  {language === 'en' ? 'Transvaginal Ultrasound' : 'ट्रान्सभ्याजिनल अल्ट्रासाउन्ड'}
+                </h3>
+                <p className="text-sm text-muted-foreground mt-2">
+                  {language === 'en'
+                    ? 'Advanced ultrasound imaging for monitoring and procedures'
+                    : 'निगरानी र प्रक्रियाहरूको लागि उन्नत अल्ट्रासाउन्ड इमेजिङ'}
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </section>
 
