@@ -29,37 +29,38 @@ export const ServiceComparison = ({ services }: ServiceComparisonProps) => {
   return (
     <div className="space-y-6">
       {/* Selection Section */}
-      {!showComparison && (
+          {!showComparison && (
         <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center justify-between">
-              <span>
+          <CardHeader className="p-4 sm:p-6">
+            <CardTitle className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+              <span className="text-base sm:text-lg">
                 {language === 'en' ? 'Compare Treatments' : 'उपचार तुलना गर्नुहोस्'}
               </span>
-              <Badge variant="secondary">
+              <Badge variant="secondary" className="text-xs">
                 {selectedServices.length}/3 {language === 'en' ? 'selected' : 'चयन गरिएको'}
               </Badge>
             </CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+          <CardContent className="p-4 sm:p-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-4 sm:mb-6">
               {services.filter(s => s.successRate || s.cost).map(service => (
                 <div 
                   key={service.id}
-                  className={`border rounded-lg p-4 cursor-pointer transition-all ${
+                  className={`border rounded-lg p-3 sm:p-4 cursor-pointer transition-all ${
                     selectedServices.includes(service.id) 
                       ? 'border-primary bg-primary/5' 
                       : 'border-border hover:border-primary/50'
                   }`}
                   onClick={() => toggleService(service.id)}
                 >
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-start gap-2 sm:gap-3">
                     <Checkbox 
                       checked={selectedServices.includes(service.id)}
                       onCheckedChange={() => toggleService(service.id)}
+                      className="mt-1"
                     />
-                    <div className="flex-1">
-                      <h4 className="font-semibold text-sm mb-1">
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-semibold text-xs sm:text-sm mb-1 line-clamp-2">
                         {language === 'en' ? service.title.en : service.title.ne}
                       </h4>
                       <Badge variant="outline" className="text-xs">
@@ -74,7 +75,7 @@ export const ServiceComparison = ({ services }: ServiceComparisonProps) => {
             {selectedServices.length >= 2 && (
               <Button 
                 onClick={() => setShowComparison(true)}
-                className="w-full"
+                className="w-full text-sm sm:text-base"
               >
                 {language === 'en' 
                   ? `Compare ${selectedServices.length} Treatments` 
@@ -88,9 +89,9 @@ export const ServiceComparison = ({ services }: ServiceComparisonProps) => {
       {/* Comparison Table */}
       {showComparison && comparedServices.length >= 2 && (
         <Card>
-          <CardHeader>
-            <div className="flex items-center justify-between">
-              <CardTitle>
+          <CardHeader className="p-4 sm:p-6">
+            <div className="flex items-center justify-between gap-2">
+              <CardTitle className="text-base sm:text-lg">
                 {language === 'en' ? 'Treatment Comparison' : 'उपचार तुलना'}
               </CardTitle>
               <Button 
@@ -102,7 +103,7 @@ export const ServiceComparison = ({ services }: ServiceComparisonProps) => {
               </Button>
             </div>
           </CardHeader>
-          <CardContent>
+          <CardContent className="p-4 sm:p-6 overflow-x-auto">
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
