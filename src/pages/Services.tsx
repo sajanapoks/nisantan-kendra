@@ -118,15 +118,11 @@ const Services = () => {
             <TabsContent value={activeCategory} className="mt-6">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredServices.map((service) => {
-                  const Icon = service.icon;
                   return (
                     <Link key={service.id} to={`/services/${service.id}`}>
                       <Card className="hover:shadow-lg transition-all hover:border-primary h-full cursor-pointer">
                         <CardHeader>
                           <div className="flex items-start justify-between mb-2">
-                            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                              <Icon className="w-6 h-6 text-primary" />
-                            </div>
                             <Badge variant="secondary">{service.category}</Badge>
                           </div>
                           <CardTitle className="text-lg">
@@ -135,7 +131,7 @@ const Services = () => {
                         </CardHeader>
                         <CardContent>
                           <p className="text-muted-foreground text-sm mb-4">
-                            {language === 'en' ? service.shortDescription.en : service.shortDescription.ne}
+                            {language === 'en' ? service.description.en : service.description.ne}
                           </p>
                           <Button variant="ghost" size="sm" className="w-full">
                             {language === 'en' ? 'Learn More' : 'थप जान्नुहोस्'}
