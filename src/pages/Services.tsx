@@ -7,6 +7,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Apple, Microscope, Stethoscope, Heart, HeartPulse } from 'lucide-react';
 import { dieticianData } from '@/data/dieticianData';
 import { servicesData } from '@/data/servicesData';
+import { ServiceComparison } from '@/components/ServiceComparison';
+import { TestimonialsSection } from '@/components/TestimonialsSection';
 import { useState } from 'react';
 import clinicLab1 from '@/assets/clinic-lab-1.jpg';
 import clinicLab2 from '@/assets/clinic-lab-2.jpg';
@@ -213,6 +215,16 @@ const Services = () => {
               </div>
             </CardContent>
           </Card>
+        </section>
+
+        {/* Service Comparison Feature */}
+        <section className="mb-12">
+          <ServiceComparison services={servicesData} />
+        </section>
+
+        {/* Testimonials Section */}
+        <section className="mb-12">
+          <TestimonialsSection category={activeCategory === 'all' ? 'all' : activeCategory as 'primary' | 'diagnostic' | 'treatment' | 'support'} />
         </section>
 
         {/* CTA */}

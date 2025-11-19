@@ -10,6 +10,15 @@ export interface Service {
     ne: string;
   };
   icon: string;
+  successRate?: string;
+  cost?: {
+    en: string;
+    ne: string;
+  };
+  duration?: {
+    en: string;
+    ne: string;
+  };
   benefits?: {
     en: string[];
     ne: string[];
@@ -212,6 +221,15 @@ export const servicesData: Service[] = [
       ne: 'सरल प्रजनन उपचार जसले ओभुलेसनको समयमा धोएको शुक्राणु सीधा गर्भाशयमा राख्छ।'
     },
     icon: 'Baby',
+    successRate: '15-20%',
+    cost: {
+      en: 'NPR 15,000 - 25,000 per cycle',
+      ne: 'प्रति चक्र NPR 15,000 - 25,000'
+    },
+    duration: {
+      en: '2-3 weeks per cycle',
+      ne: 'प्रति चक्र 2-3 हप्ता'
+    },
     benefits: {
       en: ['Less invasive than IVF', 'Cost-effective option', 'Natural conception process'],
       ne: ['IVF भन्दा कम आक्रामक', 'लागत-प्रभावी विकल्प', 'प्राकृतिक गर्भधारण प्रक्रिया']
@@ -229,6 +247,15 @@ export const servicesData: Service[] = [
       ne: 'भ्रूण निर्माणको लागि प्रयोगशालामा अण्डा र शुक्राणु संयोजन गर्ने उन्नत सहायक प्रजनन प्रविधि।'
     },
     icon: 'Heart',
+    successRate: '40-50%',
+    cost: {
+      en: 'NPR 250,000 - 350,000 per cycle',
+      ne: 'प्रति चक्र NPR 250,000 - 350,000'
+    },
+    duration: {
+      en: '4-6 weeks per cycle',
+      ne: 'प्रति चक्र 4-6 हप्ता'
+    },
     benefits: {
       en: ['High success rates', 'Overcomes multiple fertility issues', 'Genetic screening possible'],
       ne: ['उच्च सफलता दर', 'बहु प्रजनन समस्या समाधान', 'आनुवंशिक जाँच सम्भव']
@@ -244,6 +271,15 @@ export const servicesData: Service[] = [
     description: {
       en: 'Specialized IVF technique where a single sperm is injected directly into an egg for fertilization.',
       ne: 'विशेष IVF प्रविधि जहाँ एक शुक्राणु सीधा अण्डामा निषेचनको लागि इन्जेक्ट गरिन्छ।'
+    },
+    successRate: '45-55%',
+    cost: {
+      en: 'NPR 300,000 - 400,000 per cycle',
+      ne: 'प्रति चक्र NPR 300,000 - 400,000'
+    },
+    duration: {
+      en: '4-6 weeks per cycle',
+      ne: 'प्रति चक्र 4-6 हप्ता'
     },
     icon: 'Syringe',
     benefits: {
